@@ -1,7 +1,8 @@
 ---
 - name: nginxawx
   hosts: all
-
+  user: vagrant
+  sudo: True
   tasks:
 
    - name: Install Nginx
