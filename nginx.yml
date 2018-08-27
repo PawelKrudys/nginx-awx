@@ -1,0 +1,15 @@
+---
+- name: nginxawx
+  hosts: all
+
+  tasks:
+
+   - name: Install Nginx
+     apt: pkg=nginx state=installed update_cache=true
+     register: nginxinstalled
+     notify:
+      - Start Nginx
+
+  handlers:
+   - name: Start Nginx
+     service: name=nginx state=started
